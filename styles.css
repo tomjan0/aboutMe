@@ -52,9 +52,3 @@ aside {
     padding-bottom: 7px;
 }
 
-@media screen and (orientation: portrait){
-    .topnav a {
-        width: 26.695%;
-    }
-
-}
