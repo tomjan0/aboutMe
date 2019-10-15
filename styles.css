@@ -37,6 +37,9 @@
 }
 
 @media only screen and (orientation: portrait) {
+    body{
+        background-color: red;
+    }
     .topnav a {
         width: auto;
         float: none;
