@@ -29,10 +29,16 @@
 }
 
 
-@media screen and (max-width: 600px) and (orientation: portrait) {
+@media screen and (max-width: 600px) {
     .topnav a {
         width: auto;
         float: none;
     }
+}
 
+@media only screen and (orientation: portrait) {
+    .topnav a {
+        width: auto;
+        float: none;
+    }
 }
