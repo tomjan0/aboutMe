@@ -1,19 +1,38 @@
-ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    background-color: #f1f1f1;
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300&display=swap');
+
+
+.topnav {
+    background-color: white;
+    overflow: auto;
+    border: 1px solid ;
 }
 
-li a {
-    display: block;
-    color: #000;
-    padding: 8px 16px;
+.topnav a {
+    float: left;
+    font-family: "Open Sans", sans-serif;
+    text-transform: uppercase;
+    color: #000000;
+    text-align: center;
+    padding: 10px 16px;
     text-decoration: none;
+    font-size: 20px;
+    transition: background-color .35s ;
 }
 
-/* Change the link color on hover */
-li a:hover {
-    background-color: #555;
-    color: white;
+.topnav a:hover {
+    background-color: #e6e6e6;
+}
+
+.topnav a.active {
+    border-bottom: 3px solid red;
+    padding-bottom: 7px;
+}
+
+
+@media screen and (max-width: 600px) {
+    .topnav a {
+        width: auto;
+        float: none;
+    }
+
 }
