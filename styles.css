@@ -16,8 +16,8 @@ header {
 
 /* width */
 ::-webkit-scrollbar {
-    width: 5px;
-    height: auto;
+    width: 3px;
+    height: 3px;
 }
 
 /* Track */
@@ -32,7 +32,7 @@ header {
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-    background: #000000;
+    background: #84848a;
 }
 
 
@@ -62,7 +62,7 @@ aside {
 }
 
 .menu {
-    float: left;
+
     display: none;
     font-family: "Open Sans", sans-serif;
     text-transform: uppercase;
@@ -83,7 +83,8 @@ aside {
     font-family: "Open Sans", sans-serif;
     text-transform: uppercase;
     color: #000000;
-
+    text-align: center;
+    margin: 10px;
     padding-left: 16px;
     padding-right: 16px;
     text-decoration: none;
@@ -107,9 +108,9 @@ aside {
     }
 
     .topnav a {
-
-        float: left;
-        display: flex;
+        display: inline;
+        white-space: nowrap;
+        text-overline-mode: continuous;
     }
 
 
