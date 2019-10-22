@@ -1,7 +1,38 @@
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:300&display=swap');
 
+
+
 h1 {
     text-align: center;
+
+}
+
+
+header {
+  text-align: center;
+    padding: 0;
+    margin: 0;
+}
+
+/* width */
+::-webkit-scrollbar {
+    width: 5px;
+    height: auto;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: #1c1c20;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #6b6b71;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #84848a;
 }
 
 
@@ -20,35 +51,67 @@ aside {
 }
 
 .topnav {
-    background-color: white;
+    margin: 20px 5%;
     overflow: auto;
-    border: 1px solid ;
+    alignment: center;
 }
 .photo {
-    display: block;
+    display: inline;
     margin-left: auto;
     margin-right: auto;
 }
 
-.topnav a {
+.menu {
     float: left;
+    display: none;
     font-family: "Open Sans", sans-serif;
     text-transform: uppercase;
     color: #000000;
     text-align: center;
-    padding: 10px 16px;
+    margin: 10px;
+    max-width: 25%;
+    padding-left: 16px;
+    padding-right: 16px;
     text-decoration: none;
-    font-size: 20px;
-    transition: background-color .35s ;
-    alignment: bottom;
+    font-size: medium;
+    transition: border-spacing 0.5s;
+    alignment: center;
+}
+
+.topnav a {
+    float: right;
+    font-family: "Open Sans", sans-serif;
+    text-transform: uppercase;
+    color: #000000;
+    text-align: center;
+    margin: 10px;
+    max-width: 25%;
+    padding-left: 16px;
+    padding-right: 16px;
+    text-decoration: none;
+    font-size: medium;
+    transition: background-color .5s;
 }
 
 .topnav a:hover {
-    background-color: #e6e6e6;
+    border-bottom: 1px solid #6b6b6b;
+    padding-bottom: 3px;
 }
 
 .topnav a.active {
-    border-bottom: 3px solid red;
-    padding-bottom: 7px;
+    border-bottom: 1px solid black;
+    padding-bottom: 3px;
 }
 
+@media (max-width: 600px) {
+    .topnav{
+        display: flex;
+    }
+
+    .topnav a {
+        float: none;
+        display: flex;
+    }
+
+
+}
