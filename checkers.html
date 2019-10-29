@@ -1,19 +1,66 @@
 <!DOCTYPE html>
 <html lang="pl">
 <head>
-    <meta charset="UTF-8" content="width=device-width, initial-scale=1.0" name="viewport">
-    <title>Mobile Order System</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" charset="utf-8">
+    <title>Chinese Checkers</title>
     <link rel="stylesheet" type="text/css" href="styles.css">
 </head>
 <body>
 <nav class="topnav">
     <a href="index.html">O mnie</a>
     <a class="active" href="projects.html">Projekty</a>
-    <a href="projects.html">Smart Home</a>
-    <a href="projects.html">Grafy</a>
-    <a href="projects.html">test</a>
-    <a href="projects.html">test</a>
 </nav>
-<h1>Mobile Order System</h1>
+<main>
+    <section>
+        <h1>ChineseCheckers</h1>
+        <article>
+            <h2>O projekcie</h2>
+            <p>
+                Projekt ten powstał na potrzeby kursu Technologie Programowania. Mieliśmy stworzyć w pełni funkcjonalną
+                aplikację do gry w Chińskie Warcaby wraz z interfejsem graficznym.
+            </p>
+            <p>
+                Całość została napisana w Javie, a
+                sczególny nacisk został położony na wykorzystanie wzorców projektowych, trzymanie się dobrych praktyk
+                programistycznych i testowanie kodu.
+            </p>
+            <img src="photos/checkers.jpg" alt="Zdjęcie planszy Chińskich Warcabów"/>
+        </article>
+        <article>
+            <h2>O samej aplikacji</h2>
+            <p>
+                Jak juz wcześniej zostało wspomniane, aplikacja jest napisana w Javie, przy czym interfejs został
+                wykonany za
+                pomocą biblioteki JavaFX. Całość działa również w technologi klient-serwer z uzyciem Java Socketów.
+            </p>
+            <p>
+                Po stronie serwera wykonują się wszystkie obliczenia związane z logiką gry czy obsługa użytkowników.
+                Tam właśnie znajdują się bieżące dane na temat stanu rozgrywki, połączonych graczy, utworzonych pokoi,
+                itd.
+                Informacje te są jedynie wysyłane do klienta, który to wykounje swój ruch, a następnie wysyla informację
+                na jego
+                temat do serwera, gdzie całość jest przetwarzasza.
+            </p>
+            <p>
+                Dzięki rozdzieleniu aplkacji na klienta i serwer, można dowolnie modyfikować poszczególne moduły bez
+                ingerencji
+                w drugi.
+            </p>
+        </article>
+        <article>
+            <h2>Fragment ważnego kodu</h2>
+            <p>
+                Jedną z najważniejszych metod po stronie serwera to ta obliczająca możliwe do wykonania ruchy dla
+                wybranego pionka, której kod można znaleźć ponieżej:
+            </p>
+            <script src="https://gist.github.com/tomjan0/1597ab09921e04d42159d31bf14f3629.js"></script>
+        </article>
+
+    </section>
+</main>
+
+<footer>
+    © 2019 Tomasz Janik
+</footer>
 </body>
 </html>

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="pl">
 <head>
-    <meta charset="UTF-8" content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" charset="utf-8">
     <title>Mobile Order System</title>
     <link rel="stylesheet" type="text/css" href="styles.css">
 </head>
@@ -9,11 +9,47 @@
 <nav class="topnav">
     <a href="index.html">O mnie</a>
     <a class="active" href="projects.html">Projekty</a>
-    <a href="projects.html">Smart Home</a>
-    <a href="projects.html">Grafy</a>
-    <a href="projects.html">test</a>
-    <a href="projects.html">test</a>
 </nav>
-<h1>SZTOSiK</h1>
+<section>
+    <h1>MobileOrderSystem</h1>
+    <article>
+        <h2>O projekcie</h2>
+        <p>
+            Projekt ten powstał na potrzeby kursu Aplikacje Mobilne. Za zadanie było wymyślić, zaprojektować i zaprogamować
+            aplikację mobilną wykorzystując technologie prezentowane na wykładach.
+        </p>
+        <p>
+            Całość kursu skupiała się na pisaniu w języku kotlin aplikacji na system Android, tak też ta aplikacja używa
+            tych technologi.
+        </p>
+        <img class="mobile-photo" src="photos/mobilki1.png" alt="Screenshot ekranu aplikacji"/>
+        <img class="mobile-photo" src="photos/mobilki2.png" alt="Screenshot ekranu aplikacji"/>
+    </article>
+    <article>
+        <h2>O samej aplikacji</h2>
+        <p>
+            Nasza aplikacja służy do zarządzania wypożyczalnią sprzętu. Można w niej przechowywać dane swoich klientów,
+            informacje o ilości sprzętu w magazynie oraz zaplanowaych zleceniach.
+        </p>
+        <p>
+            Całość jest synchronizowana na biężąco między wszystkimi uzytkownikami z użyciem bazy danych czasu rzeczywistego
+            Firebase. Ta usługa odpowiada też za autoryzajcę w aplikacji. Jeśli chodzi o wygląd i interfejs został on zaprojektowany
+            w myśl Material Design, z użyciem biblioteki o tej samej nazwie.
+        </p>
+    </article>
+    <article>
+        <h2>Fragment ważnego kodu</h2>
+        <p>
+            Fundamentalną rzeczą w aplikaji była nawigacja między modułami i pomienianie ich na ekranie. Poniżej
+            znajdują się funkcję odpowiedzialne, za podmienianie modułu na ekranie:
+        </p>
+        <script src="https://gist.github.com/tomjan0/340a054af9aebbf00c1521c9ee0fae26.js"></script>
+    </article>
+
+</section>
+
+<footer>
+    © 2019 Tomasz Janik
+</footer>
 </body>
 </html>

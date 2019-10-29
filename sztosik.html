@@ -1,19 +1,58 @@
 <!DOCTYPE html>
 <html lang="pl">
 <head>
-    <meta charset="UTF-8" content="width=device-width, initial-scale=1.0" name="viewport">
-    <title>Mobile Order System</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" charset="utf-8">
+    <title>SZTOSiK</title>
     <link rel="stylesheet" type="text/css" href="styles.css">
 </head>
 <body>
 <nav class="topnav">
     <a href="index.html">O mnie</a>
     <a class="active" href="projects.html">Projekty</a>
-    <a href="projects.html">Smart Home</a>
-    <a href="projects.html">Grafy</a>
-    <a href="projects.html">test</a>
-    <a href="projects.html">test</a>
 </nav>
-<h1>Trylma</h1>
+<section>
+    <h1>SZTOSiK</h1>
+    <article>
+        <h2>O projekcie</h2>
+        <p>
+            Projekt ten powstał na potrzeby kursu z Baz Danych. Mieliśmy stworzyć funkcjonalną realizującą wybrane przez nas
+            samych funkcjonalności, która wykorzystywała baże danych.
+        </p>
+        <p>
+            W naszym przypadku wybór padł na Javę i MySQL, a sama aplikacja służy do zarządzania ocenami i planem lekcji.
+        </p>
+        <img src="photos/sztosik_large.jpg" alt="Screenshot ekranu wyświetlania ocen">
+    </article>
+    <article>
+        <h2>O samej aplikacji</h2>
+        <p>
+            Nasza aplikacja pozwala na zalogowanie się do systemu za pomocą konta uczniowskiego, bądź nauczycielskiego.
+            Uczeń jest w stanie zobaczyć swoje oceny oraz swój plan lekcji z różnych semestrów. Nauczyciel natomiast
+            może przeglądać oceny wszystkich swoich podopiecznych oraz wystawiać je im. Do nadawania uprawnień i
+            tworzenia kont jest wykorzystywane specjalne konto administratorskie.
+        </p>
+        <p>
+            Całość została napisana w Javie z wykorzystaniem JavaFX do interfejsu graficznego oraz JDBC do połączenia z
+            bazą danych.
+        </p>
+        <p>
+            Dzięki rozdzieleniu aplkacji na klienta i serwer, można dowolnie modyfikować poszczególne moduły bez
+            ingerencji
+            w drugi.
+        </p>
+    </article>
+    <article>
+        <h2>Fragment ważnego kodu</h2>
+        <p>
+            Jedną z 2 głównych funkcji w aplikacji jest ta odpowiedzialna za wyświetlanie ocen, której kod znajduję się poniżej:
+        </p>
+        <script src="https://gist.github.com/tomjan0/c3203bede8aab324043cf1d57f1b2354.js"></script>
+    </article>
+
+</section>
+
+<footer>
+    © 2019 Tomasz Janik
+</footer>
 </body>
 </html>
