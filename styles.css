@@ -2,17 +2,6 @@
 
 
 
-h1 {
-    text-align: center;
-
-}
-
-
-header {
-  text-align: center;
-    padding: 0;
-    margin: 0;
-}
 
 /* width */
 ::-webkit-scrollbar {
@@ -35,6 +24,16 @@ header {
     background: #84848a;
 }
 
+h1 {
+    text-align: center;
+}
+
+header {
+    text-align: center;
+    padding: 0;
+    margin: 0;
+}
+
 
 main {
     width: 85%;
@@ -42,44 +41,76 @@ main {
     display: block;
     margin-left: auto;
     margin-right: auto;
+    min-height: 90vh;
 }
 
-aside {
-    width: 85%;
-    margin-left: auto;
-    margin-right: auto;
+body {
+    margin-left: 5%;
+    margin-right: 5%;
+
 }
+
+
+section {
+    font-family: "Open Sans", sans-serif;
+    font-size: 1rem;
+    text-align: justify;
+    border-bottom: solid black 1px;
+    padding-bottom: 25px;
+}
+
+
+footer {
+    margin: 15px;
+
+}
+
+
 
 .topnav {
-    margin: 20px 5%;
+
+    padding: 5px 5%;
     overflow: auto;
-    alignment: center;
+    border-bottom: solid black 1px;
 }
+
 .photo {
-    display: inline;
-    margin-left: auto;
+    display: block;
+    float: left;
+    height: auto;
+    width: 30%;
+    text-align: right;
+    margin-right: 25px;
+    margin-bottom: 25px;
+
+}
+
+
+.introduction {
+    max-width: 1000px;
+    min-height: 300px;
+    display: block;
+    position: relative;
     margin-right: auto;
+    margin-left: auto;
+
 }
 
-.menu {
 
-    display: none;
-    font-family: "Open Sans", sans-serif;
-    text-transform: uppercase;
-    color: #000000;
-    text-align: center;
-    margin: 10px;
-    max-width: 25%;
-    padding-left: 16px;
-    padding-right: 16px;
-    text-decoration: none;
-    font-size: medium;
-    transition: border-spacing 0.5s;
-    alignment: center;
+
+.checkers {
+    background-image: url("photos/screen2.jpg");
 }
 
+.sztosik {
+    background-image: url("photos/sztosik.jpg");
+}
+
+.mobile {
+    background-image: url("photos/mobilki.jpg");
+}
 .topnav a {
-    float: right;
+    float:left;
     font-family: "Open Sans", sans-serif;
     text-transform: uppercase;
     color: #000000;
@@ -92,25 +123,83 @@ aside {
     transition: background-color .5s;
 }
 
+.project-button {
+    display: block;
+    max-width: 300px;
+    text-transform: uppercase;
+    color: #000000;
+    text-align: center;
+    text-decoration: none;
+    font-size: medium;
+    border-radius: 20px;
+    border: 1px solid #000000;
+    padding: 10px;
+    margin: 10px auto;
+    transition: background-color .5s, color .5s;
+}
+
+
+.project-desc {
+    color: white;
+    text-shadow: 2px 2px black;
+    padding: 10px 20px;
+    transition: font-size .5s;
+    margin: 10px;
+}
+
+.project-desc:hover {
+    font-size: larger;
+    font-weight: bold;
+}
+
+.long {
+    max-width: 500px;
+}
+
+
+.interests-block {
+    display: inline-grid;
+    width: 45%;
+    padding: 20px;
+}
+
+.project-button:hover {
+    background: #000000;
+    color: #ffffff;
+}
+
+
 .topnav a:hover {
-    border-bottom: 1px solid #6b6b6b;
+    border-bottom: 1px solid #545454;
     padding-bottom: 3px;
 }
 
 .topnav a.active {
-    border-bottom: 1px solid black;
+    border-bottom: 1px solid #000000;
     padding-bottom: 3px;
 }
 
+.project-href {
+    text-decoration: none;
+    transition: background-color .5s;
+}
+
+
+
 @media (max-width: 600px) {
-    .topnav{
+    .topnav {
         display: flex;
+    }
+
+    .photo {
+        margin-top: 25px;
+        width: 100%;
+        float: none;
     }
 
     .topnav a {
         display: inline;
         white-space: nowrap;
-        text-overline-mode: continuous;
     }
 
 

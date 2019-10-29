@@ -1,63 +1,133 @@
 <!DOCTYPE html>
 <html lang="pl">
 <head>
-    <meta charset="UTF-8" content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" charset="utf-8">
     <title>O mnie</title>
     <link rel="stylesheet" type="text/css" href="styles.css">
-    <script src="navigation.js"></script>
 </head>
 <body>
-<h4 class="menu">Menu</h4>
+
+
 <nav class="topnav">
     <a class="active" href="index.html">O mnie</a>
     <a href="projects.html">Projekty</a>
-    <a href="smarthome.html">Smart Home</a>
-    <a href="graphs.html">Grafy</a>
 </nav>
-<header>
-    <img class="photo" src="awatar.png" width="30%" height="auto">
-    <h1>Cześć, nazywam się Tomek!</h1>
-</header>
+
 <main>
-    <p>
-        Jestem studentem 3 roku informatyki na wydziale Podstawowych Problemów Techniki na Politechnice Wrocławskiej.
-        Urodziłem się 30 listopada 1998 roku
-        właśnie tutaj, we Wrocławiu. Mieszkam w tym mieście już ponad 20 lat, ale wciąż raz za razem odkrywam jego nowe
-        oblicza, co sprawia, że nie chcę
-        go jeszcze opuszczać.
-    </p>
+    <section class="introduction">
+        <article>
+            <img class="photo" src="photos/awatar.png" alt="Moje zdjęcie">
+            <h2>Cześć, nazywam się Tomek!</h2>
+            <p>
+                Jestem 20-letnim studentem 3 roku informatyki na Politechnice Wrocławskiej. Od kiedy pamiętam było dla
+                mnie jasnym, że to
+                jest to co chcę robić w życiu. Programowanie od zawsze jest dla mnie czymś ciekawym i przyjemnym, a
+                satysfakcji ujrzenia działającego
+                programu po kompilacji nie można porównać do niczego innego.
+            </p>
+            <p>
+                Mimo ogromnej liczby programów, które napisałem przez ostatnie lata,
+                programowanie nadal jest dla mnie tak samo zajmujące, gdyż za każdym razem jest to nowe wyzwanie i
+                tworzenie całkiem innego dzieła.
+            </p>
+        </article>
+    </section>
 
-    <p>
-        Na co dzień oczywiście studiuję, ale również pracuję w kawairni znajdującej się nieopodal uczelni. Dzięki pracy jestem w
-        stanie kupić sobie coś raz na jakiś czas, ale co ważniejsze, dzięki niej rozwinąłem nową pasję, którą jest, ogólnie rzecz biorąc, kawa.
-        Kiedyś myślałem, że kawe kupuje się w markecie i jedna od drugiej i tak się zbytnio nie różni, bo zawsze będzie gorzka i intensywna w smaku.
-        Jak się okazało, nie jest to do końca prawda. Mówiąc w skrócie, do wyboru mamy niezliczoną liczbę rodzajów ziaren i wiele różnych metod parzenia.
-        Kawę można przygotować w taki spośób, żeby była mocno gorzka, z nutami czekolady, orzecha, ale też taką, która można nawet pomylić z herbatą,
-        zarówno pod względem wyglądu, jak i smaku.
-    </p>
+
+    <section>
+        <h1>Moje Projekty</h1>
+        <a class="project-button long" href="projects.html">Kliknij tutaj, aby o nich poczytać</a>
+    </section>
 
 
-    <b>Trochę moich zainteresowań wypisanych w przystępny sposób:</b>
-    <ul>
-        <li>programowanie na urządzenia mobilne</li>
-        <li>projektowanie wyglądu interfejsu</li>
-        <li>rozwiązania smart i eco home</li>
-        <li>nowinki technologiczne</li>
-        <li>gry planszowe i sieciowe</li>
-        <li>ścianka wspinaczkowa</li>
-        <li>gra na gitarze</li>
-        <li>kultura azjatycka</li>
-        <li>kawa</li>
-        <li>Teoria grafów</li>
-
-    </ul>
+    <section class="interests">
+        <h1>Moje zainteresowania matematyczno-informatyczne</h1>
+        <article class="interests-block">
+            <h2>Grafy</h2>
+            <p>
+                Niestamowitym jest jak wiele problemów z róznorakich dziedzin matematyki, jesteśmy w stanie
+                rozwiązań z wykorzystaniem algorytmów działających na grafach. Weźmy na przykład problem policzenia
+                przepustowości
+                dróg z jednego miejsca do drugiego. Jesteśmy w stanie go rozwiązać, przekładając mapę na graf i licząc w
+                nim maksymalny przepływ.
+            </p>
+        </article>
+        <article class="interests-block">
+            <h2>Programowanie mobline</h2>
+            <p>
+                W dzisiejszych czasach każdy z nas ma zawsze ze soba mały komputer. Mowa oczywiście o smartfonach,
+                których
+                możliwości powoli zbliżają się do tego co potrafią pełnowymiarowe komputery. Fakt ten sprawia, że
+                jesteśmy w stanie zrobić
+                prawie wszystko z naszego telefonu. Zatem, jeśli chcesz, żeby twoja aplikacja była łatwo dostępna to
+                wybierz platformy mobilne.
+                Ciekawym jest też projektowanie samego interfejsu, aby był on jak najwygodniejszy dla użytkownika i
+                każda funkcja była w zasięgu kilku kliknięć.
+            </p>
+        </article>
+        <h1>Oraz te inne</h1>
+        <article class="interests-block">
+            <h2>Kawa</h2>
+            <p>
+                Poza studiowaniem pracuję dorywczo w kawiarni nieopodal uczelni. To właśnie tu narodziło się moje
+                zafascynowanie kawą.
+                Zanim tam trafiłem, tak na prawdę nigdy nie zastanawiałem się, czym różnią się od siebie poszczególne
+                gatunki kawy. Moja
+                wiedza ograniczała się do podziału na rozpuszczalną i sypaną oraz, że kawa generalnie jest ciężka i
+                gorzka w smaku. Jednak
+                okazało się, że świat kawy jest ogromny. Posiada ona zaraz po winie, najwięcej wyróżnialnych aromatów.
+                Obecnie na codzień pijam kawę,
+                kóra bardziej przypomnia herbatę niż to co niegdyś uważałem za kawę.
+            </p>
+        </article>
+        <article class="interests-block">
+            <h2>Gra na gitarze</h2>
+            <p>
+                Moja przygoda z gitarą zaczęła się całkowicie przypdakowo. Mianowicie moja siosta uczyła się gry na
+                gitarze, ale pewnego razu
+                nie mogła pójść na lekcję, a żeby nie przepadła, poszedłem tam ja. Potem już szybko zakochałem się w tym
+                instrumencie i rozpocząłem
+                naukę samemu. Teraz po niemalże 10 latach grania, z uśmiechem wspomniam każdy moment, kiedy to gitara
+                tchnęła trochę radości w posiedzenie
+                przy ognisku, wyjazd ze znajomymi, czy po prostu zwykłą imprezę.
+            </p>
+        </article>
+        <article class="interests-block">
+            <h2>Kultura azjatycka</h2>
+            <p>
+                Zainteresowanie to zaczęło się już w gimnazjum, kiedy to ktoś ze znajomych polecił mi japoński serial
+                animowany. Minął
+                niedługi czas zanim byłem już głęboko zanurzony w tej kulturze. Następnie zacząłem naukę języka
+                japońskiego, a w liceum
+                pojawiła się okazja wyjazdu do Japoni. Do teraz uważam to za swoją przygodę życie, gdyż nie zdzrzył mi
+                się jeszcze inny wyjazd
+                w miejsca tak odległe, zarazem geograficznie jak i kulturowo. Poznałem wtedy jakby całkiem inny świat.
+                Obecnie moje zainteresowania
+                przesunęły się bardziej w stronę Korei Południowej i to ona jest moim następnym duzym celem.
+            </p>
+        </article>
+        <article class="interests-block">
+            <h2>Ścianka wspinaczkowa</h2>
+            <p>
+                Sport nigdy nie był moją najlepszą stroną. Nie sprawiał mi on może jakiś wielkich problemów, ale
+                przeważnie nudziło mnie
+                wszystko poza grami zespołowymi. Oczywiście to wszystko tylko przymusowo na zajęciach wychowania
+                fizycznego. Zmieniło się
+                to jednak kiedy pewnego razu dałem szasnę ściance wspinaczkowej. Jest to niesamowicie satysfaksjonujący
+                sport i myślę, że
+                spodobał mi się dlatego, że najważniejsza jest w nim technika oraz zaplanowanie całego pokonania trasy
+                przed przystąpieniem
+                do niej.
+            </p>
+        </article>
+    </section>
 
 
 </main>
-<br>
-<aside>
-   Chcesz dowiedzieć się trochę o mojej działaności informatycznej? - <a href="projects.html">kliknij tutaj!</a>
-</aside>
+
+<footer>
+    © 2019 Tomasz Janik
+</footer>
 
 </body>
 </html>
