@@ -74,8 +74,8 @@ footer {
 }
 .w-100 {
     grid-column: 1 / span 2;
-
-    
+    padding-bottom: 0.5em;
+    padding-top: 0.5em; 
 }
 img {
     width: 100%;
