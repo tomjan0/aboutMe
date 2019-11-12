@@ -4,123 +4,147 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" charset="utf-8">
     <title>O mnie</title>
     <link rel="stylesheet" type="text/css" href="styles.css">
+    <script src="scripts.js"></script>
 </head>
 <body>
 
 
-<nav class="topnav">
+<nav class="navbar">
     <a class="active" href="index.html">O mnie</a>
     <a href="projects.html">Projekty</a>
 </nav>
 
 <main>
-    <section class="introduction">
-        <article>
-            <img class="photo" src="photos/awatar.png" alt="Moje zdjęcie">
-            <h2>Cześć, nazywam się Tomek!</h2>
-            <p>
-                Jestem 20-letnim studentem 3 roku informatyki na Politechnice Wrocławskiej. Od kiedy pamiętam było dla
-                mnie jasnym, że to
-                jest to co chcę robić w życiu. Programowanie od zawsze jest dla mnie czymś ciekawym i przyjemnym, a
-                satysfakcji ujrzenia działającego
-                programu po kompilacji nie można porównać do niczego innego.
-            </p>
-            <p>
-                Mimo ogromnej liczby programów, które napisałem przez ostatnie lata,
-                programowanie nadal jest dla mnie tak samo zajmujące, gdyż za każdym razem jest to nowe wyzwanie i
-                tworzenie całkiem innego dzieła.
-            </p>
-        </article>
-    </section>
+    <div class="side">
+        <section>
+            <h1>Cześć, nazywam się Tomek!</h1>
+            <img class="img" src="photos/awatar.png" alt="Moje zdjęcie">
+            <article>
+                <h2>Krótko o mnie</h2>
+                <p>
+                    Jestem 20-letnim studentem 3 roku informatyki na Politechnice Wrocławskiej. Od kiedy pamiętam było
+                    dla
+                    mnie jasnym, że to
+                    jest to co chcę robić w życiu. Programowanie od zawsze jest dla mnie czymś ciekawym i przyjemnym, a
+                    satysfakcji ujrzenia działającego
+                    programu po kompilacji nie można porównać do niczego innego.
+                </p>
+                <p>
+                    Mimo ogromnej liczby programów, które napisałem przez ostatnie lata,
+                    programowanie nadal jest dla mnie tak samo zajmujące, gdyż za każdym razem jest to nowe wyzwanie i
+                    tworzenie całkiem innego dzieła.
+                </p>
+            </article>
+        </section>
+    </div>
 
+    <div class="main">
+        <section class="primary">
+            <h1>Moje Projekty</h1>
+            <script>load()</script>
+            <noscript>
+                <a class="project-button" href="projects.html">Kliknij tutaj, aby o nich poczytać</a>
+            </noscript>
+        </section>
+        <section class="interests">
+            <h1 class="w-100">Moje zainteresowania matematyczno-informatyczne</h1>
+            <article class="interests-block">
+                <h2>Grafy</h2>
+                <p>
+                    Niestamowitym jest jak wiele problemów z róznorakich dziedzin matematyki, jesteśmy w stanie
+                    rozwiązań z wykorzystaniem algorytmów działających na grafach. Weźmy na przykład problem policzenia
+                    przepustowości
+                    dróg z jednego miejsca do drugiego. Jesteśmy w stanie go rozwiązać, przekładając mapę na graf i
+                    licząc w
+                    nim maksymalny przepływ.
+                </p>
+                <img class="addition" src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/Gr%C3%B6tzsch_graph.svg/1200px-Gr%C3%B6tzsch_graph.svg.png" alt="Zdjęcie grafu"/>
+            </article>
+            <article class="interests-block">
+                <h2>Programowanie mobline</h2>
+                <p>
+                    W dzisiejszych czasach każdy z nas ma zawsze ze soba mały komputer. Mowa oczywiście o smartfonach,
+                    których
+                    możliwości powoli zbliżają się do tego co potrafią pełnowymiarowe komputery. Fakt ten sprawia, że
+                    jesteśmy w stanie zrobić
+                    prawie wszystko z naszego telefonu. Zatem, jeśli chcesz, żeby twoja aplikacja była łatwo dostępna to
+                    wybierz platformy mobilne.
+                    Ciekawym jest też projektowanie samego interfejsu, aby był on jak najwygodniejszy dla użytkownika i
+                    każda funkcja była w zasięgu kilku kliknięć.
+                </p>
+                <img class="addition" src="https://www.android.com/static/2016/img/share/andy-sm.png" alt="Logo androida"/>
+            </article>
+            <h1 class="w-100">Oraz te inne</h1>
+            <article class="interests-block">
+                <h2>Kawa</h2>
+                <p>
+                    Poza studiowaniem pracuję dorywczo w kawiarni nieopodal uczelni. To właśnie tu narodziło się moje
+                    zafascynowanie kawą.
+                    Zanim tam trafiłem, tak na prawdę nigdy nie zastanawiałem się, czym różnią się od siebie
+                    poszczególne
+                    gatunki kawy. Moja
+                    wiedza ograniczała się do podziału na rozpuszczalną i sypaną oraz, że kawa generalnie jest ciężka i
+                    gorzka w smaku. Jednak
+                    okazało się, że świat kawy jest ogromny. Posiada ona zaraz po winie, najwięcej wyróżnialnych
+                    aromatów.
+                    Obecnie na codzień pijam kawę,
+                    kóra bardziej przypomnia herbatę niż to co niegdyś uważałem za kawę.
+                </p>
+                <img class="addition" src="https://images.onlinelabels.com/images/clip-art/gnokii/Coffee%20Beans%20Flat-277131.png" alt="Ziarna kawy"/>
+            </article>
+            <article class="interests-block">
+                <h2>Gra na gitarze</h2>
+                <p>
+                    Moja przygoda z gitarą zaczęła się całkowicie przypdakowo. Mianowicie moja siosta uczyła się gry na
+                    gitarze, ale pewnego razu
+                    nie mogła pójść na lekcję, a żeby nie przepadła, poszedłem tam ja. Potem już szybko zakochałem się w
+                    tym
+                    instrumencie i rozpocząłem
+                    naukę samemu. Teraz po niemalże 10 latach grania, z uśmiechem wspomniam każdy moment, kiedy to
+                    gitara
+                    tchnęła trochę radości w posiedzenie
+                    przy ognisku, wyjazd ze znajomymi, czy po prostu zwykłą imprezę.
+                </p>
+                <img class="addition" src="https://images.fineartamerica.com/images-medium-large-5/icon-of-acoustic-guitar-icon-black-contour-on-white-background-of-vector-illustration-elenvd.jpg" alt="Gitara"/>
+            </article>
+            <article class="interests-block">
+                <h2>Kultura azjatycka</h2>
+                <p>
+                    Zainteresowanie to zaczęło się już w gimnazjum, kiedy to ktoś ze znajomych polecił mi japoński
+                    serial
+                    animowany. Minął
+                    niedługi czas zanim byłem już głęboko zanurzony w tej kulturze. Następnie zacząłem naukę języka
+                    japońskiego, a w liceum
+                    pojawiła się okazja wyjazdu do Japoni. Do teraz uważam to za swoją przygodę życie, gdyż nie zdzrzył
+                    mi
+                    się jeszcze inny wyjazd
+                    w miejsca tak odległe, zarazem geograficznie jak i kulturowo. Poznałem wtedy jakby całkiem inny
+                    świat.
+                    Obecnie moje zainteresowania
+                    przesunęły się bardziej w stronę Korei Południowej i to ona jest moim następnym duzym celem.
+                </p>
+                <img class="addition" src="https://media.istockphoto.com/illustrations/japan-traditional-sumie-painting-fuji-mountain-sakura-sunset-japan-illustration-id937403308" alt="Obraz japońskiej góry Fuji"/>
 
-    <section>
-        <h1>Moje Projekty</h1>
-        <a class="project-button long" href="projects.html">Kliknij tutaj, aby o nich poczytać</a>
-    </section>
-
-
-    <section class="interests">
-        <h1 class="w-100">Moje zainteresowania matematyczno-informatyczne</h1>
-        <article class="interests-block">
-            <h2>Grafy</h2>
-            <p>
-                Niestamowitym jest jak wiele problemów z róznorakich dziedzin matematyki, jesteśmy w stanie
-                rozwiązań z wykorzystaniem algorytmów działających na grafach. Weźmy na przykład problem policzenia
-                przepustowości
-                dróg z jednego miejsca do drugiego. Jesteśmy w stanie go rozwiązać, przekładając mapę na graf i licząc w
-                nim maksymalny przepływ.
-            </p>
-        </article>
-        <article class="interests-block">
-            <h2>Programowanie mobline</h2>
-            <p>
-                W dzisiejszych czasach każdy z nas ma zawsze ze soba mały komputer. Mowa oczywiście o smartfonach,
-                których
-                możliwości powoli zbliżają się do tego co potrafią pełnowymiarowe komputery. Fakt ten sprawia, że
-                jesteśmy w stanie zrobić
-                prawie wszystko z naszego telefonu. Zatem, jeśli chcesz, żeby twoja aplikacja była łatwo dostępna to
-                wybierz platformy mobilne.
-                Ciekawym jest też projektowanie samego interfejsu, aby był on jak najwygodniejszy dla użytkownika i
-                każda funkcja była w zasięgu kilku kliknięć.
-            </p>
-        </article>
-        <h1 class="w-100">Oraz te inne</h1>
-        <article class="interests-block">
-            <h2>Kawa</h2>
-            <p>
-                Poza studiowaniem pracuję dorywczo w kawiarni nieopodal uczelni. To właśnie tu narodziło się moje
-                zafascynowanie kawą.
-                Zanim tam trafiłem, tak na prawdę nigdy nie zastanawiałem się, czym różnią się od siebie poszczególne
-                gatunki kawy. Moja
-                wiedza ograniczała się do podziału na rozpuszczalną i sypaną oraz, że kawa generalnie jest ciężka i
-                gorzka w smaku. Jednak
-                okazało się, że świat kawy jest ogromny. Posiada ona zaraz po winie, najwięcej wyróżnialnych aromatów.
-                Obecnie na codzień pijam kawę,
-                kóra bardziej przypomnia herbatę niż to co niegdyś uważałem za kawę.
-            </p>
-        </article>
-        <article class="interests-block">
-            <h2>Gra na gitarze</h2>
-            <p>
-                Moja przygoda z gitarą zaczęła się całkowicie przypdakowo. Mianowicie moja siosta uczyła się gry na
-                gitarze, ale pewnego razu
-                nie mogła pójść na lekcję, a żeby nie przepadła, poszedłem tam ja. Potem już szybko zakochałem się w tym
-                instrumencie i rozpocząłem
-                naukę samemu. Teraz po niemalże 10 latach grania, z uśmiechem wspomniam każdy moment, kiedy to gitara
-                tchnęła trochę radości w posiedzenie
-                przy ognisku, wyjazd ze znajomymi, czy po prostu zwykłą imprezę.
-            </p>
-        </article>
-        <article class="interests-block">
-            <h2>Kultura azjatycka</h2>
-            <p>
-                Zainteresowanie to zaczęło się już w gimnazjum, kiedy to ktoś ze znajomych polecił mi japoński serial
-                animowany. Minął
-                niedługi czas zanim byłem już głęboko zanurzony w tej kulturze. Następnie zacząłem naukę języka
-                japońskiego, a w liceum
-                pojawiła się okazja wyjazdu do Japoni. Do teraz uważam to za swoją przygodę życie, gdyż nie zdzrzył mi
-                się jeszcze inny wyjazd
-                w miejsca tak odległe, zarazem geograficznie jak i kulturowo. Poznałem wtedy jakby całkiem inny świat.
-                Obecnie moje zainteresowania
-                przesunęły się bardziej w stronę Korei Południowej i to ona jest moim następnym duzym celem.
-            </p>
-        </article>
-        <article class="interests-block">
-            <h2>Ścianka wspinaczkowa</h2>
-            <p>
-                Sport nigdy nie był moją najlepszą stroną. Nie sprawiał mi on może jakiś wielkich problemów, ale
-                przeważnie nudziło mnie
-                wszystko poza grami zespołowymi. Oczywiście to wszystko tylko przymusowo na zajęciach wychowania
-                fizycznego. Zmieniło się
-                to jednak kiedy pewnego razu dałem szasnę ściance wspinaczkowej. Jest to niesamowicie satysfaksjonujący
-                sport i myślę, że
-                spodobał mi się dlatego, że najważniejsza jest w nim technika oraz zaplanowanie całego pokonania trasy
-                przed przystąpieniem
-                do niej.
-            </p>
-        </article>
-    </section>
+            </article>
+            <article class="interests-block">
+                <h2>Ścianka wspinaczkowa</h2>
+                <p>
+                    Sport nigdy nie był moją najlepszą stroną. Nie sprawiał mi on może jakiś wielkich problemów, ale
+                    przeważnie nudziło mnie
+                    wszystko poza grami zespołowymi. Oczywiście to wszystko tylko przymusowo na zajęciach wychowania
+                    fizycznego. Zmieniło się
+                    to jednak kiedy pewnego razu dałem szasnę ściance wspinaczkowej. Jest to niesamowicie
+                    satysfaksjonujący
+                    sport i myślę, że
+                    spodobał mi się dlatego, że najważniejsza jest w nim technika oraz zaplanowanie całego pokonania
+                    trasy
+                    przed przystąpieniem
+                    do niej.
+                </p>
+                <img class="addition" src="https://upload.wikimedia.org/wikipedia/commons/3/33/Climbing_pictogram.svg" alt="Piktogram wspinaczki">
+            </article>
+        </section>
+    </div>
 
 
 </main>
