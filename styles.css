@@ -32,7 +32,9 @@ h1 {
     text-align: center;
 }
 
-
+.project {
+   display: block;
+}
 
 .navbar {
     display: flex;
@@ -137,10 +139,6 @@ h1 {
     font-weight: bold;
 }
 
-.long {
-    max-width: 500px;
-}
-
 
 .project-button:hover {
     background: #000000;
@@ -153,10 +151,10 @@ h1 {
     transition: background-color .5s;
 }
 
-.mobile-photo {
-    display: inline-grid;
-    margin: 10px auto;
-    width: 45%;
+.mobile-photos {
+    display: grid;
+    grid-template-columns: 45% 45%;
+    justify-content: space-evenly;
 
 }
 
