@@ -1,6 +1,6 @@
 const PUZZLE_DIFFICULTY = 2; /*plansza 4x4*/
 const PUZZLE_HOVER_TINT = '#009900'; /*kolor tla puzzla doc.*/
-const MISSING_PIECE_STYLE = 'red';
+const MISSING_PIECE_STYLE = 'white';
 let ROWS = 4;
 let COLUMNS = 4;
 let _canvas;
@@ -154,7 +154,7 @@ function getInvCount(arr) {
     let inv_count = 0;
     for (let i = 0; i < arr.length - 1; i++) {
         for (let j = i + 1; j < arr.length; j++) {
-            if (arr[j] && arr[i] && arr[i].init > arr[j].init)
+            if (arr[i].init > arr[j].init)
                 inv_count++;
         }
     }
@@ -187,15 +187,19 @@ function isSolvable(pieces) {
 
 function shuffleArray(a) {
     let solvable = false;
-    // [a[0], a[a.length - 1]] = [a[a.length - 1], a[0]];
-    while (!solvable) {
+    [a[0], a[a.length - 1]] = [a[a.length - 1], a[0]];
+    // while (!solvable) {
         for (let i = a.length - 1; i > 0; i--) {
             const j = Math.floor(Math.random() * (i + 1));
             [a[i], a[j]] = [a[j], a[i]];
         }
         solvable = isSolvable(a);
+        if(!solvable) {
+            [ a[a.length - 1], a[a.length - 2] ] = [ a[a.length - 2], a[a.length - 1] ]
+        }
+        solvable = isSolvable(a);
         console.log(solvable);
-    }
+    // }
     return a;
 }
 
@@ -334,6 +338,8 @@ function resetPuzzleAndCheckWin() {
         }
     }
     if (gameWin) {
+        _canvas.onmousemove = null;
+        _canvas.onmousedown = null;
         setTimeout(gameOver, 500);
     }
 }
