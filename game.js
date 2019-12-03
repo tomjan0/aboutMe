@@ -1,6 +1,8 @@
 const PUZZLE_DIFFICULTY = 2; /*plansza 4x4*/
 const PUZZLE_HOVER_TINT = '#009900'; /*kolor tla puzzla doc.*/
 const MISSING_PIECE_STYLE = 'white';
+let ROWS = 4;
+let COLUMNS = 4;
 let _canvas;
 let _stage;
 let _img;
@@ -12,20 +14,74 @@ let _pieceHeight;
 let _currentPiece;
 let _currentDropPiece = null;
 let _mouse;
+let selected = '';
+let _scale;
+
+function gallery() {
+    const container = document.getElementById('gallery');
+    for (let i = 1; i <= 12; i++) {
+        const img = new Image();
+        img.onload = (val) => {
+            container.innerHTML += '<img id="thumb' + i + '" class="gallery-photo" onclick="loadBig(' + i + ')" src="' + img.src + '">';
+        };
+        img.src = 'photos/puzzle/thumbnails/' + i + 's.jpg';
+    }
+}
+
+function loadBig(id) {
+    if (selected) {
+        document.getElementById(selected).classList.remove('selected');
+    }
+    selected = 'thumb' + id;
+    document.getElementById(selected).classList.add('selected');
+    const preview = document.getElementById('preview');
+    preview.innerHTML = '<img class="preview-photo"  src="photos/loading.gif">';
+    getImage('https://amalinowska.pl/Tomek/' + id + '.jpg').then(url => {
+        preview.innerHTML = '<h1>Gra</h1>' +
+            '<div class="inputs">' +
+            '<label style="margin-right: 5px" for="cols-input">Liczba kolumn: </label>' +
+            '<input id="cols-input" min="2" type="number" value="' + COLUMNS + '" onchange="COLUMNS = value">' +
+            '<label style="margin-left: 10px; margin-right: 5px" for="rows-input">   Liczba wierszy: </label>' +
+            '<input id="rows-input" min="2" type="number" value="' + ROWS + '" onchange="ROWS = value">' +
+            '<button class="btn" onclick="onImage()">Restart</button>' +
+            '</div>' +
+            '<canvas class="preview-photo" id="canvas"></canvas>';
+        init(url);
+        // preview.innerHTML = '<h1>Podgląd</h1><img  class="preview-photo" src="' + url + '">'
+    }).catch(err => console.log('error'));
+
+}
+
+function getImage(url) {
+    return new Promise(
+        function (resolve, reject) {
+            const img = new Image();
+            img.onload = function () {
+                resolve(url);
+            };
+            img.onerror = function (err) {
+                reject(err);
+            };
+            img.src = url;
+        }
+    );
+}
 
 
-function init() {
+function init(url) {
+    document.onmousemove = null;
+
     _img = new Image();
     _img.addEventListener('load', onImage);
-    _img.src = "photos/wiewiorka.png";
-    _img.scale = 0.5;
+    _img.src = url;
 }
 
 function onImage() {
-    _pieceWidth = Math.floor(_img.width / PUZZLE_DIFFICULTY)
-    _pieceHeight = Math.floor(_img.height / PUZZLE_DIFFICULTY)
-    _puzzleWidth = _pieceWidth * PUZZLE_DIFFICULTY;
-    _puzzleHeight = _pieceHeight * PUZZLE_DIFFICULTY;
+    document.onmousemove = null;
+    _pieceWidth = Math.floor(_img.width / COLUMNS);
+    _pieceHeight = Math.floor(_img.height / ROWS);
+    _puzzleWidth = _pieceWidth * COLUMNS;
+    _puzzleHeight = _pieceHeight * ROWS;
     setCanvas();
     initPuzzle();
 }
@@ -38,6 +94,7 @@ function setCanvas() {
     _canvas.style.border = "1px solid black";
 }
 
+
 function initPuzzle() { /*inicjalizacja pierwotna i na replay*/
     _pieces = [];
     _mouse = {x: 0, y: 0};
@@ -45,7 +102,11 @@ function initPuzzle() { /*inicjalizacja pierwotna i na replay*/
     _currentDropPiece = null; /*na wypadek replay*/
     _stage.drawImage(_img, 0, 0, _puzzleWidth, _puzzleHeight,
         0, 0, _puzzleWidth, _puzzleHeight);
-    createTitle("Click to Start Puzzle");
+    _scale = 1215 / document.getElementById('canvas').clientWidth;
+    document.onresize = () => {
+        _scale = 1215 / document.getElementById('canvas').clientWidth;
+    };
+    createTitle("Kliknij, aby zacząć");
     buildPieces();
 }
 
@@ -66,7 +127,7 @@ function buildPieces() {
     var piece;
     var xPos = 0;
     var yPos = 0;
-    for (i = 0; i < PUZZLE_DIFFICULTY * PUZZLE_DIFFICULTY; i++) {
+    for (i = 0; i < ROWS * COLUMNS; i++) {
         piece = {};
         piece.init = i;
         piece.sx = xPos;
@@ -102,9 +163,10 @@ function getInvCount(arr) {
 function findXPosition(pieces) {
     // start from bottom-right corner of matrix
     for (let i = pieces.length - 1; i >= 0; i--) {
-        if (pieces[i].init === 1) {
+        if (pieces[i].init === 0) {
             const pos = pieces.length - i - 1;
-            return Math.floor(pos / PUZZLE_DIFFICULTY + 1);
+            console.log(Math.floor(pos / COLUMNS));
+            return Math.floor(pos / COLUMNS);
         }
     }
 }
@@ -117,7 +179,7 @@ function isSolvable(pieces) {
 
     // If grid is odd, return true if inversion
     // count is even.
-    if (PUZZLE_DIFFICULTY % 2 === 1)
+    if (COLUMNS % 2 === 1)
         return invCount % 2 === 0;
     else     // grid is even
     {
@@ -131,7 +193,7 @@ function isSolvable(pieces) {
 
 function shuffleArray(a) {
     let solvable = false;
-    [a[0], a[a.length - 1]] = [a[a.length - 1], a[0]];
+    // [a[0], a[a.length - 1]] = [a[a.length - 1], a[0]];
     while (!solvable) {
         for (let i = a.length - 1; i > 0; i--) {
             const j = Math.floor(Math.random() * (i + 1));
@@ -143,7 +205,8 @@ function shuffleArray(a) {
     return a;
 }
 
-function shufflePuzzle() {
+function shufflePuzzle(e) {
+    if (e.y === e.layerY || e.x === e.layerX) return;
     _pieces = shuffleArray(_pieces);
     _stage.clearRect(0, 0, _puzzleWidth, _puzzleHeight);
     let i;
@@ -176,12 +239,13 @@ function shufflePuzzle() {
 }
 
 function onPuzzleClick(e) {
-    _mouse.x = e.layerX;
-    _mouse.y = e.layerY;
+
+    _mouse.x = e.layerX * _scale;
+    _mouse.y = e.layerY * _scale;
     if (_mouse.x === e.x || _mouse.y === e.y) {
         return;
     }
-    console.log(_mouse.x, _mouse.y);
+    // console.log(_mouse.x, _mouse.y);
     _currentPiece = checkPieceClicked();
     if (_currentPiece) {
         const xdiff = Math.abs(_currentPiece.xPos - _currentDropPiece.xPos);
@@ -209,17 +273,8 @@ function checkPieceClicked() {
 }
 
 function updatePuzzle(e) {
-    // _currentDropPiece = null;
-    // if(e.layerX || e.layerX == 0){
-    //     _mouse.x = e.layerX - _canvas.offsetLeft;
-    //     _mouse.y = e.layerY - _canvas.offsetTop;
-    // }
-    // else if(e.offsetX || e.offsetX == 0){
-    //     _mouse.x = e.offsetX - _canvas.offsetLeft;
-    //     _mouse.y = e.offsetY - _canvas.offsetTop;
-    // }
-    _mouse.x = e.layerX;
-    _mouse.y = e.layerY;
+    _mouse.x = e.layerX * _scale;
+    _mouse.y = e.layerY * _scale;
     if (_mouse.x === e.x || _mouse.y === e.y) {
         return;
     }

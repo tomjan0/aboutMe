@@ -5,9 +5,10 @@
     <meta charset="utf-8">
     <title>O mnie</title>
     <link rel="stylesheet" type="text/css" href="styles.css">
+    <link rel="stylesheet" type="text/css" href="game.css">
     <script src="game.js"></script>
 </head>
-<body onload="init()">
+<body>
 
 
 <nav class="navbar">
@@ -17,18 +18,19 @@
 </nav>
 
 <main>
+    <section style="height: 100vh">
+        <h1 id="title">Wybierz zdjęcie</h1>
 
-    <section style="height: 100vh" class="primary">
-        <h1>Układanka</h1>
-        <canvas id="canvas"></canvas>
+        <div id="gallery" class="gallery">
+            <script>gallery()</script>
+        </div>
+        <div id="preview" class="preview">
+
+        </div>
+
     </section>
-
-
 </main>
 
-<footer>
-    © 2019 Tomasz Janik
-</footer>
 
 </body>
 </html>
