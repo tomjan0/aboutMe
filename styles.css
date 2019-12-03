@@ -187,9 +187,18 @@ h1 {
         display: block;
     }
 
+    .navbar {
+        flex-direction: row;
+    }
+    .interests {
+        grid-template-columns: 45% 45%;
+    }
+    .w-100 {
+        grid-column: 1 / span 2;
+    }
 }
 
-@media (min-width: 600px) {
+@media (min-width: 600px) or (orientation: landscape) {
     .navbar {
         flex-direction: row;
     }

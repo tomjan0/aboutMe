@@ -1,6 +1,6 @@
 const PUZZLE_DIFFICULTY = 2; /*plansza 4x4*/
 const PUZZLE_HOVER_TINT = '#009900'; /*kolor tla puzzla doc.*/
-const MISSING_PIECE_STYLE = 'white';
+const MISSING_PIECE_STYLE = 'red';
 let ROWS = 4;
 let COLUMNS = 4;
 let _canvas;
@@ -39,11 +39,11 @@ function loadBig(id) {
     getImage('https://amalinowska.pl/Tomek/' + id + '.jpg').then(url => {
         preview.innerHTML = '<h1>Gra</h1>' +
             '<div class="inputs">' +
-            '<label style="margin-right: 5px" for="cols-input">Liczba kolumn: </label>' +
+            '<label style="margin: 10px" for="cols-input">Liczba kolumn: </label>' +
             '<input id="cols-input" min="2" type="number" value="' + COLUMNS + '" onchange="COLUMNS = value">' +
-            '<label style="margin-left: 10px; margin-right: 5px" for="rows-input">   Liczba wierszy: </label>' +
+            '<label style="margin: 10px" for="rows-input">   Liczba wierszy: </label>' +
             '<input id="rows-input" min="2" type="number" value="' + ROWS + '" onchange="ROWS = value">' +
-            '<button class="btn" onclick="onImage()">Restart</button>' +
+            '<button style="margin: 10px" class="btn" onclick="onImage()">Restart</button>' +
             '</div>' +
             '<canvas class="preview-photo" id="canvas"></canvas>';
         init(url);
@@ -78,6 +78,7 @@ function init(url) {
 
 function onImage() {
     document.onmousemove = null;
+
     _pieceWidth = Math.floor(_img.width / COLUMNS);
     _pieceHeight = Math.floor(_img.height / ROWS);
     _puzzleWidth = _pieceWidth * COLUMNS;
@@ -88,6 +89,8 @@ function onImage() {
 
 function setCanvas() {
     _canvas = document.getElementById('canvas');
+    _canvas.onmousemove = null;
+    _canvas.onmousedown = null;
     _stage = _canvas.getContext('2d');
     _canvas.width = _puzzleWidth;
     _canvas.height = _puzzleHeight;
@@ -95,16 +98,17 @@ function setCanvas() {
 }
 
 
-function initPuzzle() { /*inicjalizacja pierwotna i na replay*/
+function initPuzzle() {
     _pieces = [];
     _mouse = {x: 0, y: 0};
-    _currentPiece = null; /*na wypadek replay*/
-    _currentDropPiece = null; /*na wypadek replay*/
+    _currentPiece = null;
+    _currentDropPiece = null;
     _stage.drawImage(_img, 0, 0, _puzzleWidth, _puzzleHeight,
         0, 0, _puzzleWidth, _puzzleHeight);
-    _scale = 1215 / document.getElementById('canvas').clientWidth;
-    document.onresize = () => {
-        _scale = 1215 / document.getElementById('canvas').clientWidth;
+    _scale = _canvas.width / _canvas.clientWidth;
+    window.onresize = () => {
+        _scale = _canvas.width / _canvas.getElementById('canvas').clientWidth;
+        console.log(_scale);
     };
     createTitle("Kliknij, aby zacząć");
     buildPieces();
@@ -115,7 +119,7 @@ function createTitle(msg) {
     _stage.globalAlpha = .4;
     _stage.fillRect(100, _puzzleHeight - 40, _puzzleWidth - 200, 40);
     _stage.fillStyle = "#FFFFFF";
-    _stage.globalAlpha = 1; /*˙zeby tekst nie był przezr.*/
+    _stage.globalAlpha = 1;
     _stage.textAlign = "center";
     _stage.textBaseline = "middle";
     _stage.font = "20px Arial";
@@ -143,16 +147,14 @@ function buildPieces() {
             yPos += _pieceHeight;
         }
     }
-    document.onmousedown = shufflePuzzle;
+    _canvas.onmousedown = shufflePuzzle;
 }
 
 function getInvCount(arr) {
     let inv_count = 0;
     for (let i = 0; i < arr.length - 1; i++) {
         for (let j = i + 1; j < arr.length; j++) {
-            // count pairs(i, j) such that i appears
-            // before j, but i > j.
-            if (arr[j] && arr[i] && arr[i] > arr[j])
+            if (arr[j] && arr[i] && arr[i].init > arr[j].init)
                 inv_count++;
         }
     }
@@ -161,28 +163,20 @@ function getInvCount(arr) {
 
 
 function findXPosition(pieces) {
-    // start from bottom-right corner of matrix
     for (let i = pieces.length - 1; i >= 0; i--) {
         if (pieces[i].init === 0) {
-            const pos = pieces.length - i - 1;
+            const pos = Math.abs(pieces.length - i - 1);
             console.log(Math.floor(pos / COLUMNS));
             return Math.floor(pos / COLUMNS);
         }
     }
 }
 
-// This function returns true if given
-// instance of N*N - 1 puzzle is solvable
 function isSolvable(pieces) {
-    // Count inversions in given pieces
     let invCount = getInvCount(pieces);
-
-    // If grid is odd, return true if inversion
-    // count is even.
     if (COLUMNS % 2 === 1)
         return invCount % 2 === 0;
-    else     // grid is even
-    {
+    else {
         const pos = findXPosition(pieces);
         if (pos % 2 === 1)
             return invCount % 2 === 0;
@@ -234,24 +228,19 @@ function shufflePuzzle(e) {
         }
     }
 
-    document.onmousedown = onPuzzleClick;
-    document.onmousemove = updatePuzzle;
+    _canvas.onmousedown = onPuzzleClick;
+    document.onmousedown = null;
+    _canvas.onmousemove = onHover;
 }
 
 function onPuzzleClick(e) {
 
     _mouse.x = e.layerX * _scale;
     _mouse.y = e.layerY * _scale;
-    if (_mouse.x === e.x || _mouse.y === e.y) {
-        return;
-    }
-    // console.log(_mouse.x, _mouse.y);
     _currentPiece = checkPieceClicked();
     if (_currentPiece) {
         const xdiff = Math.abs(_currentPiece.xPos - _currentDropPiece.xPos);
         const ydiff = Math.abs(_currentPiece.yPos - _currentDropPiece.yPos);
-        // console.log(_pieceWidth, _pieceHeight);
-        // console.log(xdiff, ydiff);
         if ((xdiff === _pieceWidth && ydiff === 0) || (xdiff === 0 && ydiff === _pieceHeight)) {
             pieceDropped();
         }
@@ -272,20 +261,15 @@ function checkPieceClicked() {
     return null;
 }
 
-function updatePuzzle(e) {
+function onHover(e) {
     _mouse.x = e.layerX * _scale;
     _mouse.y = e.layerY * _scale;
-    if (_mouse.x === e.x || _mouse.y === e.y) {
-        return;
-    }
+    if (!_currentDropPiece)  return;
     _stage.clearRect(0, 0, _puzzleWidth, _puzzleHeight);
     var i;
     var piece;
     for (i = 0; i < _pieces.length; i++) {
         piece = _pieces[i];
-        // if(piece == _currentPiece){
-        //     continue;
-        // }
         if (piece.red) {
             _stage.fillStyle = MISSING_PIECE_STYLE;
             _stage.fillRect(piece.xPos,
@@ -298,13 +282,10 @@ function updatePuzzle(e) {
         }
         _stage.strokeRect(piece.xPos, piece.yPos, _pieceWidth,
             _pieceHeight);
-        // if(_currentDropPiece == null){
         if (_mouse.x < piece.xPos || _mouse.x >
             (piece.xPos + _pieceWidth) || _mouse.y < piece.yPos
             || _mouse.y > (piece.yPos + _pieceHeight) || piece.red) {
-//NOT OVER
         } else {
-            // _currentDropPiece = piece;
             _stage.save();
             _stage.globalAlpha = .4;
             _stage.fillStyle = PUZZLE_HOVER_TINT;
@@ -313,18 +294,10 @@ function updatePuzzle(e) {
                 _pieceHeight);
             _stage.restore();
         }
-        // }
     }
-    // _stage.save();
-    // _stage.globalAlpha = .6;
-    // _stage.drawImage(_img, _currentPiece.sx, _currentPiece.sy, _pieceWidth, _pieceHeight, _mouse.x - (_pieceWidth / 2), _mouse.y - (_pieceHeight / 2), _pieceWidth, _pieceHeight);
-    // _stage.restore();
-    // _stage.strokeRect( _mouse.x - (_pieceWidth / 2), _mouse.y - (_pieceHeight / 2), _pieceWidth,_pieceHeight);
 }
 
 function pieceDropped(e) {
-    // document.onmousemove = null;
-    // document.onmouseup = null;
     if (_currentDropPiece != null) {
         var tmp = {xPos: _currentPiece.xPos, yPos: _currentPiece.yPos};
         _currentPiece.xPos = _currentDropPiece.xPos;

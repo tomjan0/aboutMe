@@ -21,6 +21,7 @@
 }
 
 .preview {
+    width: 100%;
     display: flex;
     padding: 10px;
     flex-direction: column;
@@ -28,14 +29,16 @@
 }
 
 .preview-photo {
+    width: 100%;
     margin: auto;
-    width: 50%;
     height: auto;
 }
 
 .inputs {
+    overflow: auto;
+    flex-wrap: wrap;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     align-content: center;
     padding: 10px;
     margin: auto;
@@ -58,6 +61,16 @@
     cursor: pointer;
     background-color: black;
     color: white;
+}
+
+@media (min-width: 1000px) {
+    .inputs {
+        flex-direction: row;
+    }
+
+    .preview-photo {
+        width: 75%;
+    }
 }
 
 
