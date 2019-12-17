@@ -1,0 +1,17 @@
+.column-2 {
+    padding: 20px;
+    flex: 1;
+}
+
+h2 {
+    border-bottom: 1px solid silver;
+}
+
+article {
+    border-bottom: 1px solid black;
+}
+
+.shift {
+    padding-left: 20px;
+}
+
