@@ -1,0 +1,78 @@
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-content: center;
+  align-items: center;
+  justify-items: center;
+  width: 80%;
+  max-width: 400px;
+  margin: 20px auto;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+form label {
+  display: block;
+  position: relative;
+  min-height: 35px;
+  width: 100%;
+  margin: 15px  5px;
+  padding: 7px;
+  border-bottom: 1px solid black;
+}
+
+form label input {
+  border: none;
+  display: block;
+  width: 100%;
+  height: 35px;
+  font-size: 120%;
+
+}
+
+input:focus {
+  outline: none;
+}
+
+.btn-submit {
+  min-height: 30px;
+  margin: 20px auto 10px;
+  padding: 10px;
+  width: 100%;
+  background-color: white;
+  border: 1px solid black;
+  border-radius: 20px;
+  font-weight: lighter;
+  font-size: 120%;
+  transition-duration: 200ms;
+}
+
+.btn-submit:hover {
+  cursor: pointer;
+  background-color: #dfdfdf;
+}
+
+.errors {
+  color: red;
+  font-size: 80%;
+  width: 100%;
+  text-align: center;
+  font-style: italic;
+  margin-top: 10px;
+}
+
+.redirect {
+  font-style: italic;
+  margin: 0;
+  padding: 0;
+}
+
+.redirect a:link, .redirect a:visited {
+  text-decoration: none;
+  transition-duration: 300ms;
+}
+
+.redirect a:hover {
+  text-decoration: underline;
+}
