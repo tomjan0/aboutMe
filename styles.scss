@@ -1,0 +1,242 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300&display=swap');
+@import "scrollbar.css";
+
+$main-font: 'Open Sans', sans-serif;
+$main-color: #000000;
+$main-color-lighter: #545454;
+$main-color-background: #fff;
+$breakpoints: (
+        mid: 600px,
+        big: 900px
+);
+$border-thin-main: 1px solid $main-color;
+$border-thin-ligther: 1px solid $main-color-lighter;
+$columns-ratio: (
+        main: 3,
+        side: 1
+);
+
+@mixin flip-colors {
+  color: $main-color-background;
+  background-color: $main-color;
+}
+
+@mixin normal-colors {
+  color: $main-color;
+  background-color: $main-color-background;
+}
+
+@mixin flex($arg1,$arg2: no-center) {
+  display: flex;
+  @if ($arg1 == column) {
+    flex-direction: column;
+  } @else if ($arg1 == row) {
+    flex-direction: row;
+  }
+  @if ($arg2 == center) {
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: $main-font;
+  margin: 10px 20px;
+  text-align: justify;
+}
+
+header {
+  text-align: center;
+  padding: 0;
+  margin: 0;
+}
+
+main {
+  @include flex(column);
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+footer {
+  margin: 15px;
+}
+
+h1 {
+  text-align: center;
+}
+
+.project {
+  display: block;
+}
+
+.navbar {
+  @include flex(column);
+  border-bottom: $border-thin-main;
+  text-align: center;
+
+  a {
+    text-transform: uppercase;
+    color: $main-color;
+    margin: 10px;
+    padding: 0 16px;
+    text-decoration: none;
+    font-size: 1rem;
+
+    &.active {
+      border-bottom: $border-thin-main;
+      padding-bottom: 3px;
+    }
+
+    &:hover {
+      border-bottom: $border-thin-ligther;
+      padding-bottom: 3px;
+    }
+
+  }
+}
+
+.side {
+  padding: 20px;
+}
+
+.main {
+  padding: 20px;
+  @include flex(column, center);
+}
+
+.img {
+  padding: 20px;
+  width: 100%;
+}
+
+.interests {
+  display: grid;
+  grid-template-columns: 90%;
+  grid-template-rows: auto;
+  justify-content: space-evenly;
+
+}
+
+.w-100 {
+  grid-column: 1;
+  padding-bottom: 0.5em;
+  padding-top: 0.5em;
+}
+
+
+.checkers {
+  background-image: url("photos/screen2.jpg");
+}
+
+.sztosik {
+  background-image: url("photos/sztosik.jpg");
+}
+
+.mobile {
+  background-image: url("photos/mobilki.jpg");
+}
+
+
+.project-button {
+  outline: none;
+  cursor: pointer;
+  font-family: $main-font;
+  width: 100%;
+  text-transform: uppercase;
+  text-align: center;
+  text-decoration: none;
+  font-size: 1rem;
+  border-radius: 2rem;
+  border: $border-thin-main;
+  padding: 0.75rem;
+  transition: background-color .5s, color .5s;
+  @include normal-colors;
+
+  &:hover {
+    @include flip-colors;
+  }
+}
+
+.project-desc {
+  color: white;
+  text-shadow: 2px 2px black;
+  padding: 10px 20px;
+  transition: font-size .5s;
+  margin: 10px;
+
+  &:hover {
+    font-size: larger;
+    font-weight: bold;
+  }
+}
+
+.project-href {
+  text-decoration: none;
+  transition: background-color .5s;
+}
+
+.mobile-photos {
+  display: grid;
+  grid-template-columns: 45% 45%;
+  justify-content: space-evenly;
+
+}
+
+.addition {
+  display: none;
+  width: 100%;
+}
+
+
+@media (min-width: map_get($breakpoints, big)) {
+  main {
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  .side {
+    flex: map_get($columns-ratio, side);
+    border-right: $border-thin-main;
+  }
+
+  .main {
+    flex: map_get($columns-ratio, main);
+  }
+
+  h2 {
+    border-bottom: 1px solid silver;
+  }
+
+  .addition {
+    display: block;
+  }
+
+  .navbar {
+    flex-direction: row;
+  }
+  .interests {
+    grid-template-columns: 45% 45%;
+  }
+  .w-100 {
+    grid-column: 1 / span 2;
+  }
+}
+
+@media (min-width: map_get($breakpoints, mid)) {
+  .navbar {
+    flex-direction: row;
+  }
+  .interests {
+    grid-template-columns: 45% 45%;
+  }
+  .w-100 {
+    grid-column: 1 / span 2;
+  }
+
+}
+

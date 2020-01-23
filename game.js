@@ -36,7 +36,7 @@ function loadBig(id) {
     document.getElementById(selected).classList.add('selected');
     const preview = document.getElementById('preview');
     preview.innerHTML = '<img class="preview-photo"  src="photos/loading.gif">';
-    getImage('https://amalinowska.pl/Tomek/' + id + '.jpg').then(url => {
+    getImage('photos/puzzle/thumbnails/' + id + 's.jpg').then(url => {
         preview.innerHTML = '<h1>Gra</h1>' +
             '<div class="inputs">' +
             '<label style="margin: 10px" for="cols-input">Liczba kolumn: </label>' +

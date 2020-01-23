@@ -98,7 +98,7 @@
             kwadartową modulo $n$</span>.
                     Zbiór wszystkich reszt kwadartowych modulo $n$ oznaczamy $Q_n$, zaś zbiór wszystkich niereszt
                     kwadartowych
-                    modulo $n$ oznaczamy $\bar{Q_n}$.
+                    modulo $n$ oznaczamy $\overline{Q}_n$.
                 </p>
             </section>
         </section>
@@ -112,10 +112,10 @@
                 <div>
                     $$
                     \left(\frac{a}{p}\right) = \left\{
-                    \begin{array}{1}
+                    \begin{array}{rl}
                     0 & \textrm{ jeżeli } p|a\\
                     1 & \textrm{ jeżeli } a \in Q_p\\
-                    -1 & \textrm{ jeżeli } a \in \bar{Q_p}
+                    -1 & \textrm{ jeżeli } a \in \overline{Q}_p
                     \end{array}
                     \right.
                     $$
@@ -202,7 +202,7 @@
                 </li>
                 <li>If $n \equiv 3 \pmod 4$ and $a_1 \equiv 3 \pmod 4$ then set $s \leftarrow -s$</li>
                 <li>Set $n_1 \leftarrow n \mod a_1$</li>
-                <li>If $a_1 = 1$ then return $s$<br>Else return $s\cdot Jacobi(n_1,a_1)$</li>
+                <li>If $a_1 = 1$ then return $s$<br>Else return $s\cdot Jacobi(a_1,n_1)$</li>
             </ol>
             <p>Czas działania tego algorytmu wynosi $\mathcal{O}((\lg{n})^2)$ operacji bitowych.</p>
         </section>
@@ -245,7 +245,7 @@
           \begin{equation}
             f(x) = \sum_{i=1}^{t} \left(y_i \prod_{1 \leqslant j \leqslant t,\, j \neq i} \frac{x-x_j}{x_i-x_j} \right)
           \mod p
-          \label{sh}
+          \label{one}
           \end{equation}
           $$
         </span>
@@ -260,7 +260,7 @@
           \begin{equation}
             f(x) = \sum_{i=1}^{t} \left(y_i \prod_{1 \leqslant j \leqslant t,\, j \neq i} \frac{x_j}{x_j-x_i} \right)
           \mod p
-          \label{sh2}
+          \label{two}
           \end{equation}
           $$
         </span>
@@ -295,7 +295,7 @@
                   13 \cdot \frac{3}{3-6}\cdot \frac{4}{4-6} = 110
         $$
       </span>
-                na mocy wzoru ($\ref{sh2}$) $$S = 110 \mod 29 = 23.$$
+                na mocy wzoru ($\ref{two}$) $$S = 110 \mod 29 = 23.$$
             </p>
         </section>
     </article>
