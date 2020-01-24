@@ -36,14 +36,14 @@ function loadBig(id) {
     document.getElementById(selected).classList.add('selected');
     const preview = document.getElementById('preview');
     preview.innerHTML = '<img class="preview-photo"  src="photos/loading.gif">';
-    getImage('photos/puzzle/thumbnails/' + id + 's.jpg').then(url => {
+    getImage('photos/puzzle/' + id + '.jpg').then(url => {
         preview.innerHTML = '<h1>Gra</h1>' +
             '<div class="inputs">' +
             '<label style="margin: 10px" for="cols-input">Liczba kolumn: </label>' +
             '<input id="cols-input" min="2" type="number" value="' + COLUMNS + '" onchange="COLUMNS = value">' +
             '<label style="margin: 10px" for="rows-input">   Liczba wierszy: </label>' +
             '<input id="rows-input" min="2" type="number" value="' + ROWS + '" onchange="ROWS = value">' +
-            '<button style="margin: 10px" class="btn" onclick="onImage()">Restart</button>' +
+            '<button style="padding: 10px" class="btn" onclick="onImage()">Restart</button>' +
             '</div>' +
             '<canvas class="preview-photo" id="canvas"></canvas>';
         init(url);
